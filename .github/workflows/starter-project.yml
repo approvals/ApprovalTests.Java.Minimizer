@@ -56,7 +56,7 @@ jobs:
             -Dmaven.test.dependency.excludes=com.approvaltests:approvaltests,com.approvaltests:approvaltests-util \
             -Dmaven.test.additionalClasspath="$JAR"
       - name: Upload the report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: tree-shaking-report-${{ matrix.source }}
