@@ -9,7 +9,7 @@ Builds a slimmed-down ApprovalTests jar containing only the code a project uses.
 - `TreeShakerTest` clones the ApprovalTests `31.0.0` tag into the temp directory. It uses a sibling `../ApprovalTests.Java` clone if there is one (offline), and GitHub otherwise.
 
 ## Architecture
-See [docs/Architecture.md](docs/Architecture.md) for the diagrams and [docs/PartialEvaluation.md](docs/PartialEvaluation.md) for the spec and implementation notes. In short:
+See [internal_documentation/architecture.md](internal_documentation/architecture.md) for the diagrams and [internal_documentation/PartialEvaluation.md](internal_documentation/PartialEvaluation.md) for the spec and implementation notes. The processes in [internal_documentation/processes/](internal_documentation/processes/) apply here too. `docs/` is published with GitHub Pages and only holds the sample report. In short:
 - `CreateSelectionJson.sh` → `PartialEvaluationCli detect` → `SelectionDetector` writes `approvaltests-selection.json`.
 - `CreatePartailApprovals.sh` → `PartialEvaluationCli build` → `SourceCheckout` (clone into `.local/`) → `JarBuilder` (baseline build) → `TreeShaker` (mark + sweep the source) → `JarBuilder` (partial jar) → `HtmlReport`.
 - `explain` prints why a class was kept (`ShakeReport.keptBecause`).

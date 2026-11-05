@@ -2,7 +2,7 @@
 
 Builds a slimmed-down ApprovalTests jar that contains only the code your project actually uses.
 
-You develop against the full ApprovalTests jar as usual. When you release, this tool builds a custom jar from your usages and removes everything else by **Tree Shaking**. For the [StarterProject](https://github.com/approvals/ApprovalTests.java.StarterProject) on 31.0.0, the jar goes from 948 KB to 252 KB, and Jackson, XStream, Quartz and others drop out. On the latest `master` it's 223 KB, and Velocity is gone too. See the [sample report](docs/sample-report.html).
+You develop against the full ApprovalTests jar as usual. When you release, this tool builds a custom jar from your usages and removes everything else by **Tree Shaking**. For the [StarterProject](https://github.com/approvals/ApprovalTests.java.StarterProject) on 31.0.0, the jar goes from 948 KB to 252 KB, and Jackson, XStream, Quartz and others drop out. On the latest `master` it's 223 KB, and Velocity is gone too. See the [sample report](https://approvaltests.com/ApprovalTests.Java.Minimizer/sample-report.html).
 
 ## Requirements
 
@@ -46,7 +46,7 @@ Check anything listed under "Could not resolve" by hand. Rerunning it later upda
 
 This clones ApprovalTests at your version's tag, removes everything your selection doesn't reach, and builds. It writes these to `target/approvaltests-custom/`:
 - `approvaltests-<version>-custom.jar`: `approvaltests` and `approvaltests-util` in one jar (sources included)
-- `approvaltests-<version>-custom-report.html`: what was removed and why (see the [sample report](docs/sample-report.html))
+- `approvaltests-<version>-custom-report.html`: what was removed and why (see the [sample report](https://approvaltests.com/ApprovalTests.Java.Minimizer/sample-report.html))
 
 ### 3. Test against the partial jar
 
@@ -89,6 +89,8 @@ com.spun.util.database.ResultSetWriter is kept because:
 ## Working On The Tool
 
 - `./build_and_test.sh` builds and tests the tool. `TreeShakerTest` uses a sibling `../ApprovalTests.Java` clone if there is one, and clones from GitHub otherwise.
-- [docs/PartialEvaluation.md](docs/PartialEvaluation.md) is the spec and the current implementation notes.
-- [docs/Architecture.md](docs/Architecture.md) has the architecture diagrams.
+- [internal_documentation/PartialEvaluation.md](internal_documentation/PartialEvaluation.md) is the spec and the current implementation notes.
+- [internal_documentation/architecture.md](internal_documentation/architecture.md) has the architecture diagrams.
+- [internal_documentation/processes/](internal_documentation/processes/) has the processes: commit notation, code style, test style, fixing issues, upgrading dependencies.
+- `docs/` is published with GitHub Pages and holds the [sample report](https://approvaltests.com/ApprovalTests.Java.Minimizer/sample-report.html) ([source](docs/sample-report.html)).
 - [AGENTS.md](AGENTS.md) has the conventions for working in this repo.

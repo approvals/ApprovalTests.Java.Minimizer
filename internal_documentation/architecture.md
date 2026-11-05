@@ -160,7 +160,7 @@ flowchart LR
     subgraph repo["ApprovalTests.Java.Minimizer repo"]
         module["src, pom.xml,<br/>CreateSelectionJson.sh, CreatePartailApprovals.sh,<br/>build_and_test.sh"]
         dotlocal[".local/ (gitignored)<br/>approvaltests-31.0.0/<br/>approvaltests-master/"]
-        spec["docs/<br/>PartialEvaluation.md, Architecture.md"]
+        spec["internal_documentation/<br/>PartialEvaluation.md, architecture.md"]
     end
     subgraph project["Your project"]
         selection["approvaltests-selection.json"]
