@@ -1,0 +1,63 @@
+name: StarterProject end to end
+
+# Detects the StarterProject's selection, builds its partial jar,
+# and runs the StarterProject's tests against that jar instead of the full ApprovalTests jars.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  end-to-end:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        source:
+          - release
+          - current
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: ApprovalTests.Java.Minimizer
+      - uses: actions/checkout@v7
+        with:
+          repository: approvals/ApprovalTests.java.StarterProject
+          path: ApprovalTests.java.StarterProject
+      - uses: jdx/mise-action@v5.2.4
+        with:
+          working_directory: ApprovalTests.Java.Minimizer
+      - name: Create the selection file
+        working-directory: ApprovalTests.java.StarterProject
+        run: |
+          ../ApprovalTests.Java.Minimizer/CreateSelectionJson.sh
+          cat approvaltests-selection.json
+      - name: Build the partial jar
+        working-directory: ApprovalTests.java.StarterProject
+        run: |
+          if [ "${{ matrix.source }}" = "current" ]; then
+            ../ApprovalTests.Java.Minimizer/CreatePartailApprovals.sh --current
+          else
+            ../ApprovalTests.Java.Minimizer/CreatePartailApprovals.sh
+          fi
+          ls -la target/approvaltests-custom
+      - name: Test the StarterProject against the partial jar
+        working-directory: ApprovalTests.java.StarterProject
+        run: |
+          JAR=$(ls $PWD/target/approvaltests-custom/*.jar)
+          mvn -B test \
+            -Dmaven.test.dependency.excludes=com.approvaltests:approvaltests,com.approvaltests:approvaltests-util \
+            -Dmaven.test.additionalClasspath="$JAR"
+      - name: Upload the report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tree-shaking-report-${{ matrix.source }}
+          path: ApprovalTests.java.StarterProject/target/approvaltests-custom/*-report.html
