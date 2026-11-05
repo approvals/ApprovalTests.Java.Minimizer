@@ -31,7 +31,7 @@ The shaken ApprovalTests source is in `.local/approvaltests-<version>/`. Use `gi
 - Don't commit `.local/` or `target/` (both gitignored).
 
 ## Commit Messages
-Use `scripts/create-commit-message.sh` to build every commit message. Run `bash scripts/create-commit-message.sh <risk> <intention> "<message>"` and use its stdout as the commit message.
+Use `internal_documentation/scripts/create-commit-message.sh` to build every commit message. Run `bash internal_documentation/scripts/create-commit-message.sh <risk> <intention> "<message>"` and use its stdout as the commit message.
 Run it with `--help` to see the risk and intention codes and what they mean.
 
 ## Code Style
