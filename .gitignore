@@ -1,1 +1,8 @@
 .local/
+target/
+*.received.*
+.approval_tests_temp/
+.idea/
+*.iml
+.vscode/
+.DS_Store
