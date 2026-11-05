@@ -1,0 +1,392 @@
+Files: 448 total, 305 deleted, 143 kept
+Unresolved calls (kept by name): 8
+
+Missing entry points (0):
+
+Removed methods (40):
+  approvaltests-util/src/main/java/com/spun/util/ArrayUtils.java (32)
+  approvaltests-util/src/main/java/com/spun/util/Asserts.java (10)
+  approvaltests-util/src/main/java/com/spun/util/ClassUtils.java (8)
+  approvaltests-util/src/main/java/com/spun/util/DateDifference.java (21)
+  approvaltests-util/src/main/java/com/spun/util/JsonUtils.java (8)
+  approvaltests-util/src/main/java/com/spun/util/ObjectUtils.java (11)
+  approvaltests-util/src/main/java/com/spun/util/StringUtils.java (52)
+  approvaltests-util/src/main/java/com/spun/util/SystemUtils.java (5)
+  approvaltests-util/src/main/java/com/spun/util/WindowUtils.java (7)
+  approvaltests-util/src/main/java/com/spun/util/database/ResultSetWriter.java (1)
+  approvaltests-util/src/main/java/com/spun/util/io/FileUtils.java (26)
+  approvaltests-util/src/main/java/com/spun/util/io/NetUtils.java (3)
+  approvaltests-util/src/main/java/com/spun/util/logger/SimpleLogger.java (24)
+  approvaltests-util/src/main/java/com/spun/util/logger/SimpleLoggerInstance.java (21)
+  approvaltests-util/src/main/java/com/spun/util/parser/ParserCommons.java (39)
+  approvaltests-util/src/main/java/com/spun/util/parser/TemplateDate.java (9)
+  approvaltests-util/src/main/java/com/spun/util/parser/TemplateNumberUtils.java (10)
+  approvaltests-util/src/main/java/com/spun/util/parser/TemplateStringUtils.java (18)
+  approvaltests-util/src/main/java/com/spun/util/tests/TestUtils.java (16)
+  approvaltests-util/src/main/java/com/spun/util/velocity/VelocityParser.java (6)
+  approvaltests-util/src/main/java/org/lambda/actions/Action0.java (2)
+  approvaltests-util/src/main/java/org/lambda/query/OrderBy.java (2)
+  approvaltests-util/src/main/java/org/lambda/query/Query.java (20)
+  approvaltests-util/src/main/java/org/lambda/query/Queryable.java (7)
+  approvaltests-util/src/main/java/org/lambda/utils/Once.java (2)
+  approvaltests-util/src/main/java/org/packagesettings/Field.java (2)
+  approvaltests-util/src/main/java/org/packagesettings/PackageLevelSettings.java (1)
+  approvaltests-util/src/main/java/org/packagesettings/Settings.java (1)
+  approvaltests/src/main/java/org/approvaltests/Approvals.java (51)
+  approvaltests/src/main/java/org/approvaltests/JsonApprovals.java (8)
+  approvaltests/src/main/java/org/approvaltests/SafetyCheckBeforeVerify.java (2)
+  approvaltests/src/main/java/org/approvaltests/approvers/ApprovalTracker.java (1)
+  approvaltests/src/main/java/org/approvaltests/approvers/FileApprover.java (1)
+  approvaltests/src/main/java/org/approvaltests/core/Options.java (12)
+  approvaltests/src/main/java/org/approvaltests/namer/ApprovalResults.java (1)
+  approvaltests/src/main/java/org/approvaltests/namer/NamerFactory.java (8)
+  approvaltests/src/main/java/org/approvaltests/namer/NamerFactoryForOptions.java (7)
+  approvaltests/src/main/java/org/approvaltests/reporters/DiffInfo.java (1)
+  approvaltests/src/main/java/org/approvaltests/reporters/FirstWorkingReporter.java (1)
+  approvaltests/src/main/java/org/approvaltests/reporters/MultiReporter.java (1)
+
+Removed nested types (5):
+  com.spun.util.ArrayUtils.IterableWrapper
+  com.spun.util.tests.TestUtils.SourceDirectoryRestorer
+  com.spun.util.velocity.VelocityParser.FileParseCall
+  com.spun.util.velocity.VelocityParser.JarParseCall
+  org.approvaltests.reporters.DiffInfo.One
+
+Dropped (only named in a string, nothing left inside) (1):
+  org.approvaltests.integrations.junit5.JupiterApprovals
+
+Deleted files (305):
+  approvaltests-util/src/main/java/com/spun/swing/Paintable.java
+  approvaltests-util/src/main/java/com/spun/swing/PaintablePanel.java
+  approvaltests-util/src/main/java/com/spun/swing/Paintables.java
+  approvaltests-util/src/main/java/com/spun/swing/SwingUtils.java
+  approvaltests-util/src/main/java/com/spun/util/CallMethod.java
+  approvaltests-util/src/main/java/com/spun/util/Colors.java
+  approvaltests-util/src/main/java/com/spun/util/ComparableUtils.java
+  approvaltests-util/src/main/java/com/spun/util/Comparator.java
+  approvaltests-util/src/main/java/com/spun/util/ConditionListener.java
+  approvaltests-util/src/main/java/com/spun/util/ConfigXMLFileReader.java
+  approvaltests-util/src/main/java/com/spun/util/ConfigXMLFileWriter.java
+  approvaltests-util/src/main/java/com/spun/util/ConfigXMLNodeExtractor.java
+  approvaltests-util/src/main/java/com/spun/util/Country.java
+  approvaltests-util/src/main/java/com/spun/util/DatabaseConfiguration.java
+  approvaltests-util/src/main/java/com/spun/util/DatabaseConfigurationWrapper.java
+  approvaltests-util/src/main/java/com/spun/util/DatabaseUtils.java
+  approvaltests-util/src/main/java/com/spun/util/DateUtils.java
+  approvaltests-util/src/main/java/com/spun/util/DeprecatedException.java
+  approvaltests-util/src/main/java/com/spun/util/DualOutputStream.java
+  approvaltests-util/src/main/java/com/spun/util/EmbeddedSorter.java
+  approvaltests-util/src/main/java/com/spun/util/EnabledConditions.java
+  approvaltests-util/src/main/java/com/spun/util/FrameCloser.java
+  approvaltests-util/src/main/java/com/spun/util/MapBuilder.java
+  approvaltests-util/src/main/java/com/spun/util/Memory.java
+  approvaltests-util/src/main/java/com/spun/util/MockConnection.java
+  approvaltests-util/src/main/java/com/spun/util/MockRandom.java
+  approvaltests-util/src/main/java/com/spun/util/MultiSorter.java
+  approvaltests-util/src/main/java/com/spun/util/NameUtils.java
+  approvaltests-util/src/main/java/com/spun/util/NumberUtils.java
+  approvaltests-util/src/main/java/com/spun/util/PhoneNumber.java
+  approvaltests-util/src/main/java/com/spun/util/PrintUtils.java
+  approvaltests-util/src/main/java/com/spun/util/ProgessFrame.java
+  approvaltests-util/src/main/java/com/spun/util/QuietAutoCloseable.java
+  approvaltests-util/src/main/java/com/spun/util/State.java
+  approvaltests-util/src/main/java/com/spun/util/StateToPostalCode.java
+  approvaltests-util/src/main/java/com/spun/util/StringIdentifierGenerator.java
+  approvaltests-util/src/main/java/com/spun/util/ThreadedWrapper.java
+  approvaltests-util/src/main/java/com/spun/util/Threads.java
+  approvaltests-util/src/main/java/com/spun/util/TimeOut.java
+  approvaltests-util/src/main/java/com/spun/util/TimedObject.java
+  approvaltests-util/src/main/java/com/spun/util/Tuple3.java
+  approvaltests-util/src/main/java/com/spun/util/WhiteSpaceFileFilter.java
+  approvaltests-util/src/main/java/com/spun/util/WhiteSpaceStripper.java
+  approvaltests-util/src/main/java/com/spun/util/database/AutomaticVariableSetter.java
+  approvaltests-util/src/main/java/com/spun/util/database/CircularRedundancyError.java
+  approvaltests-util/src/main/java/com/spun/util/database/ColumnMetadata.java
+  approvaltests-util/src/main/java/com/spun/util/database/DatabaseCache.java
+  approvaltests-util/src/main/java/com/spun/util/database/DatabaseLifeCycleUtils.java
+  approvaltests-util/src/main/java/com/spun/util/database/DatabaseLoader.java
+  approvaltests-util/src/main/java/com/spun/util/database/DatabaseLoadingTracker.java
+  approvaltests-util/src/main/java/com/spun/util/database/DatabaseObject.java
+  approvaltests-util/src/main/java/com/spun/util/database/DatabaseRelationshipPersistent.java
+  approvaltests-util/src/main/java/com/spun/util/database/DatabaseTransactionInfo.java
+  approvaltests-util/src/main/java/com/spun/util/database/Metadata.java
+  approvaltests-util/src/main/java/com/spun/util/database/NullDatabaseObject.java
+  approvaltests-util/src/main/java/com/spun/util/database/ReverseOrderLimitQueryWriter.java
+  approvaltests-util/src/main/java/com/spun/util/database/SQLInformationException.java
+  approvaltests-util/src/main/java/com/spun/util/database/SQLQuery.java
+  approvaltests-util/src/main/java/com/spun/util/database/SQLQueryUtils.java
+  approvaltests-util/src/main/java/com/spun/util/database/SQLQueryWriter.java
+  approvaltests-util/src/main/java/com/spun/util/database/SQLStatementUtils.java
+  approvaltests-util/src/main/java/com/spun/util/database/SQLUtils.java
+  approvaltests-util/src/main/java/com/spun/util/database/SQLWhere.java
+  approvaltests-util/src/main/java/com/spun/util/database/SimpleQueryWriter.java
+  approvaltests-util/src/main/java/com/spun/util/database/SqlConnectionException.java
+  approvaltests-util/src/main/java/com/spun/util/database/SshConnection.java
+  approvaltests-util/src/main/java/com/spun/util/database/SshDatabaseWrapper.java
+  approvaltests-util/src/main/java/com/spun/util/database/Syncable.java
+  approvaltests-util/src/main/java/com/spun/util/database/TemporaryCache.java
+  approvaltests-util/src/main/java/com/spun/util/database/XmlDatabaseMapExtractor.java
+  approvaltests-util/src/main/java/com/spun/util/database/automaticsetter/AddDateAware.java
+  approvaltests-util/src/main/java/com/spun/util/database/automaticsetter/AddDateVariableSetter.java
+  approvaltests-util/src/main/java/com/spun/util/database/automaticsetter/ChangeDateAware.java
+  approvaltests-util/src/main/java/com/spun/util/database/automaticsetter/ChangeDateVariableSetter.java
+  approvaltests-util/src/main/java/com/spun/util/database/automaticsetter/EndDateAware.java
+  approvaltests-util/src/main/java/com/spun/util/database/automaticsetter/EndDateVariableSetter.java
+  approvaltests-util/src/main/java/com/spun/util/database/automaticsetter/PkeyVariableSetter.java
+  approvaltests-util/src/main/java/com/spun/util/date/DateRange.java
+  approvaltests-util/src/main/java/com/spun/util/date/DateRangeUtils.java
+  approvaltests-util/src/main/java/com/spun/util/filters/AndFilter.java
+  approvaltests-util/src/main/java/com/spun/util/filters/ClassFilter.java
+  approvaltests-util/src/main/java/com/spun/util/filters/Filter.java
+  approvaltests-util/src/main/java/com/spun/util/filters/FilterIn.java
+  approvaltests-util/src/main/java/com/spun/util/filters/FilterUtils.java
+  approvaltests-util/src/main/java/com/spun/util/filters/MethodFilter.java
+  approvaltests-util/src/main/java/com/spun/util/filters/MethodFilterBuilder.java
+  approvaltests-util/src/main/java/com/spun/util/filters/OrFilter.java
+  approvaltests-util/src/main/java/com/spun/util/images/ImageWriter.java
+  approvaltests-util/src/main/java/com/spun/util/introspection/Caller.java
+  approvaltests-util/src/main/java/com/spun/util/introspection/ClassGetter.java
+  approvaltests-util/src/main/java/com/spun/util/io/CharSequenceInputStream.java
+  approvaltests-util/src/main/java/com/spun/util/io/CommaDelimitedFileParser.java
+  approvaltests-util/src/main/java/com/spun/util/io/FTPConfig.java
+  approvaltests-util/src/main/java/com/spun/util/io/FileMonitor.java
+  approvaltests-util/src/main/java/com/spun/util/io/InternetConnectivityException.java
+  approvaltests-util/src/main/java/com/spun/util/io/SimpleDirectoryFilter.java
+  approvaltests-util/src/main/java/com/spun/util/io/SimpleFileFilter.java
+  approvaltests-util/src/main/java/com/spun/util/io/SpaceDelimitedReader.java
+  approvaltests-util/src/main/java/com/spun/util/io/SshUtils.java
+  approvaltests-util/src/main/java/com/spun/util/io/StackElementLevelSelector.java
+  approvaltests-util/src/main/java/com/spun/util/io/TabDelimitedFileReader.java
+  approvaltests-util/src/main/java/com/spun/util/io/XMLNodeExtractor.java
+  approvaltests-util/src/main/java/com/spun/util/io/XMLUtils.java
+  approvaltests-util/src/main/java/com/spun/util/io/ZipUtils.java
+  approvaltests-util/src/main/java/com/spun/util/io/filefilters/ExtensionFileFilter.java
+  approvaltests-util/src/main/java/com/spun/util/io/filefilters/ExtenstionFileFilter.java
+  approvaltests-util/src/main/java/com/spun/util/io/filefilters/JavaClassFileFilter.java
+  approvaltests-util/src/main/java/com/spun/util/io/xml/BasicExtractor.java
+  approvaltests-util/src/main/java/com/spun/util/io/xml/DatabaseObjectXMLUtils.java
+  approvaltests-util/src/main/java/com/spun/util/io/xml/XMLSerializable.java
+  approvaltests-util/src/main/java/com/spun/util/io/xml/XmlExtractable.java
+  approvaltests-util/src/main/java/com/spun/util/io/xml/XmlExtractor.java
+  approvaltests-util/src/main/java/com/spun/util/io/xml/XmlExtractorUtil.java
+  approvaltests-util/src/main/java/com/spun/util/io/xml/XmlMap.java
+  approvaltests-util/src/main/java/com/spun/util/io/xml/XmlMapExtractor.java
+  approvaltests-util/src/main/java/com/spun/util/io/xml/XmlMapTranslator.java
+  approvaltests-util/src/main/java/com/spun/util/io/xml/XmlTranslator.java
+  approvaltests-util/src/main/java/com/spun/util/logger/Markers.java
+  approvaltests-util/src/main/java/com/spun/util/logger/NullLogger.java
+  approvaltests-util/src/main/java/com/spun/util/logger/Output.java
+  approvaltests-util/src/main/java/com/spun/util/logger/Outputable.java
+  approvaltests-util/src/main/java/com/spun/util/markdown/MarkdownCompatible.java
+  approvaltests-util/src/main/java/com/spun/util/markdown/table/MarkdownColumn.java
+  approvaltests-util/src/main/java/com/spun/util/markdown/table/MarkdownTable.java
+  approvaltests-util/src/main/java/com/spun/util/markdown/table/MarkdownTableContents.java
+  approvaltests-util/src/main/java/com/spun/util/markdown/table/MarkdownTableElement.java
+  approvaltests-util/src/main/java/com/spun/util/markdown/table/MarkdownTableHeader.java
+  approvaltests-util/src/main/java/com/spun/util/markdown/table/Resizable.java
+  approvaltests-util/src/main/java/com/spun/util/parser/CurrencyAmount.java
+  approvaltests-util/src/main/java/com/spun/util/parser/FileLocator.java
+  approvaltests-util/src/main/java/com/spun/util/parser/JarFileLocator.java
+  approvaltests-util/src/main/java/com/spun/util/parser/MassAmount.java
+  approvaltests-util/src/main/java/com/spun/util/parser/PercentageAmount.java
+  approvaltests-util/src/main/java/com/spun/util/parser/ResourceLocator.java
+  approvaltests-util/src/main/java/com/spun/util/parser/SteppingIterator.java
+  approvaltests-util/src/main/java/com/spun/util/parser/TemplateDouble.java
+  approvaltests-util/src/main/java/com/spun/util/parser/TemplateError.java
+  approvaltests-util/src/main/java/com/spun/util/parser/VelocityList.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/DatabaseObjectDeletor.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/DatabaseObjectSaver.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/Deletor.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/ExecutableCommand.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/Saver.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/Saver2.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/SavingException.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/SqlLoader.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/test/MockDeletor.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/test/MockLoader.java
+  approvaltests-util/src/main/java/com/spun/util/persistence/test/MockSaver.java
+  approvaltests-util/src/main/java/com/spun/util/quartz/QuartzUtils.java
+  approvaltests-util/src/main/java/com/spun/util/servlets/ValidationError.java
+  approvaltests-util/src/main/java/com/spun/util/servlets/ValidationTracker.java
+  approvaltests-util/src/main/java/com/spun/util/sql/MockConnection.java
+  approvaltests-util/src/main/java/com/spun/util/sql/MockDatabaseMetaData.java
+  approvaltests-util/src/main/java/com/spun/util/sql/MockStatement.java
+  approvaltests-util/src/main/java/com/spun/util/tests/EmailOpener.java
+  approvaltests-util/src/main/java/com/spun/util/timers/Clock.java
+  approvaltests-util/src/main/java/com/spun/util/timers/Counter.java
+  approvaltests-util/src/main/java/com/spun/util/timers/EventTime.java
+  approvaltests-util/src/main/java/com/spun/util/timers/EventTimer.java
+  approvaltests-util/src/main/java/com/spun/util/timers/LapTime.java
+  approvaltests-util/src/main/java/com/spun/util/timers/LapTimeStatistics.java
+  approvaltests-util/src/main/java/com/spun/util/timers/LapTimer.java
+  approvaltests-util/src/main/java/com/spun/util/timers/MetricsDisplayer.java
+  approvaltests-util/src/main/java/com/spun/util/timers/test/MockClock.java
+  approvaltests-util/src/main/java/com/spun/util/velocity/ParseCall.java
+  approvaltests-util/src/main/java/com/spun/util/velocity/ParserDateUtils.java
+  approvaltests-util/src/main/java/com/spun/util/velocity/ServletContextLoader.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action1.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action1WithException.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action2WithException.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action3.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action3WithException.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action4.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action4WithException.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action5.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action5WithException.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action6.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action6WithException.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action7.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action7WithException.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action8.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action8WithException.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action9.java
+  approvaltests-util/src/main/java/org/lambda/actions/Action9WithException.java
+  approvaltests-util/src/main/java/org/lambda/actions/Actions.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function1WithException.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function2WithException.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function3.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function3WithException.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function4.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function4WithException.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function5.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function5WithException.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function6.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function6WithException.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function7.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function7WithException.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function8.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function8WithException.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function9.java
+  approvaltests-util/src/main/java/org/lambda/functions/Function9WithException.java
+  approvaltests-util/src/main/java/org/lambda/functions/Functions.java
+  approvaltests-util/src/main/java/org/lambda/query/Counter.java
+  approvaltests-util/src/main/java/org/lambda/query/Echo1.java
+  approvaltests-util/src/main/java/org/lambda/query/Loops.java
+  approvaltests-util/src/main/java/org/lambda/query/ParallelLoops.java
+  approvaltests-util/src/main/java/org/lambda/query/ParallelQuery.java
+  approvaltests-util/src/main/java/org/lambda/utils/Grid.java
+  approvaltests-util/src/main/java/org/lambda/utils/Mutable.java
+  approvaltests-util/src/main/java/org/lambda/utils/Range.java
+  approvaltests/src/main/java/org/approvaltests/ApprovalSettings.java
+  approvaltests/src/main/java/org/approvaltests/ApprovalUtilities.java
+  approvaltests/src/main/java/org/approvaltests/JsonJackson3Approvals.java
+  approvaltests/src/main/java/org/approvaltests/JsonJacksonApprovals.java
+  approvaltests/src/main/java/org/approvaltests/JsonXstreamApprovals.java
+  approvaltests/src/main/java/org/approvaltests/MarkdownStoryBoard.java
+  approvaltests/src/main/java/org/approvaltests/SqlApprovals.java
+  approvaltests/src/main/java/org/approvaltests/StoryBoard.java
+  approvaltests/src/main/java/org/approvaltests/StoryBoardApprovals.java
+  approvaltests/src/main/java/org/approvaltests/VerifiableStoryBoard.java
+  approvaltests/src/main/java/org/approvaltests/XmlXomApprovals.java
+  approvaltests/src/main/java/org/approvaltests/awt/AwtApprovals.java
+  approvaltests/src/main/java/org/approvaltests/awt/GifSequenceWriter.java
+  approvaltests/src/main/java/org/approvaltests/awt/PaintableMultiFrame.java
+  approvaltests/src/main/java/org/approvaltests/awt/PaintableMultiframeWriter.java
+  approvaltests/src/main/java/org/approvaltests/combinations/CombinationApprovals.java
+  approvaltests/src/main/java/org/approvaltests/combinations/CombinationsHelper.java
+  approvaltests/src/main/java/org/approvaltests/combinations/Labels.java
+  approvaltests/src/main/java/org/approvaltests/combinations/SkipCombination.java
+  approvaltests/src/main/java/org/approvaltests/combinations/pairwise/Case.java
+  approvaltests/src/main/java/org/approvaltests/combinations/pairwise/InParameterOrderStrategy.java
+  approvaltests/src/main/java/org/approvaltests/combinations/pairwise/OptionsForAParameter.java
+  approvaltests/src/main/java/org/approvaltests/combinations/pairwise/Pairwise.java
+  approvaltests/src/main/java/org/approvaltests/combinations/pairwise/PairwiseHelper.java
+  approvaltests/src/main/java/org/approvaltests/core/Experimental.java
+  approvaltests/src/main/java/org/approvaltests/core/Verifiable.java
+  approvaltests/src/main/java/org/approvaltests/core/VerifyParameters.java
+  approvaltests/src/main/java/org/approvaltests/inline/CodeParts.java
+  approvaltests/src/main/java/org/approvaltests/inline/InlineComparator.java
+  approvaltests/src/main/java/org/approvaltests/inline/InlineJavaReporter.java
+  approvaltests/src/main/java/org/approvaltests/inline/InlineKotlinReporter.java
+  approvaltests/src/main/java/org/approvaltests/inline/InlineOptions.java
+  approvaltests/src/main/java/org/approvaltests/inline/InlineWriter.java
+  approvaltests/src/main/java/org/approvaltests/integrations/junit5/JupiterApprovals.java
+  approvaltests/src/main/java/org/approvaltests/legacycode/AllPoints.java
+  approvaltests/src/main/java/org/approvaltests/namer/FileCounter.java
+  approvaltests/src/main/java/org/approvaltests/namer/IdeLabeller.java
+  approvaltests/src/main/java/org/approvaltests/namer/MasterDirectoryNamer.java
+  approvaltests/src/main/java/org/approvaltests/namer/MultipleFilesLabeller.java
+  approvaltests/src/main/java/org/approvaltests/namer/NamedEnvironment.java
+  approvaltests/src/main/java/org/approvaltests/namer/NamerWrapper.java
+  approvaltests/src/main/java/org/approvaltests/namer/OsEnvironmentLabeller.java
+  approvaltests/src/main/java/org/approvaltests/reporters/AutoApproveReporter.java
+  approvaltests/src/main/java/org/approvaltests/reporters/AutoApproveWhenEmptyReporter.java
+  approvaltests/src/main/java/org/approvaltests/reporters/DelayedClipboardReporter.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ExecutableQueryFailure.java
+  approvaltests/src/main/java/org/approvaltests/reporters/FileCaptureReporter.java
+  approvaltests/src/main/java/org/approvaltests/reporters/FileLauncherReporter.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ImageReporter.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ImageWebReporter.java
+  approvaltests/src/main/java/org/approvaltests/reporters/NotePadLauncher.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportByOpeningFiles.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportNothing.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportWithAraxisMerge.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportWithBeyondCompare.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportWithDiffCommandLine.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportWithDiffMerge.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportWithKaleidoscope.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportWithKdiff3.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportWithSublimeMerge.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportWithTortoise.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportWithTortoiseGit.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReportWithVisualStudioCode.java
+  approvaltests/src/main/java/org/approvaltests/reporters/ReporterThatCreatesAnApprovalScript.java
+  approvaltests/src/main/java/org/approvaltests/reporters/TestNgReporter.java
+  approvaltests/src/main/java/org/approvaltests/reporters/TextWebReporter.java
+  approvaltests/src/main/java/org/approvaltests/reporters/linux/ReportByCreatingDiffFile.java
+  approvaltests/src/main/java/org/approvaltests/reporters/linux/ReportOnCyberDojo.java
+  approvaltests/src/main/java/org/approvaltests/scrubbers/DateScrubber.java
+  approvaltests/src/main/java/org/approvaltests/scrubbers/GuidScrubber.java
+  approvaltests/src/main/java/org/approvaltests/scrubbers/MultiScrubber.java
+  approvaltests/src/main/java/org/approvaltests/scrubbers/NormalizeSpacesScrubber.java
+  approvaltests/src/main/java/org/approvaltests/scrubbers/RegExScrubber.java
+  approvaltests/src/main/java/org/approvaltests/scrubbers/Scrubbers.java
+  approvaltests/src/main/java/org/approvaltests/strings/Printable.java
+  approvaltests/src/main/java/org/approvaltests/strings/Printer.java
+  approvaltests/src/main/java/org/approvaltests/testcommitrevert/TestCommitRevertRunner.java
+  approvaltests/src/main/java/org/approvaltests/testcommitrevert/TestCommitRevertTest.java
+  approvaltests/src/main/java/org/approvaltests/utils/ConsoleOutput.java
+  approvaltests/src/main/java/org/approvaltests/utils/VerifiableMarkdownTable.java
+  approvaltests/src/main/java/org/approvaltests/utils/WithTimeZone.java
+  approvaltests/src/main/java/org/approvaltests/utils/logger/SimpleLoggerApprovals.java
+  approvaltests/src/main/java/org/approvaltests/utils/logger/VerifySimpleLogger.java
+  approvaltests/src/main/java/org/approvaltests/utils/parseinput/ParseInput.java
+  approvaltests/src/main/java/org/approvaltests/utils/parseinput/ParseInputWith1Parameters.java
+  approvaltests/src/main/java/org/approvaltests/utils/parseinput/ParseInputWith2Parameters.java
+  approvaltests/src/main/java/org/approvaltests/utils/parseinput/ParseInputWith3Parameters.java
+  approvaltests/src/main/java/org/approvaltests/velocity/VelocityApprovals.java
+  approvaltests/src/main/java/org/approvaltests/writers/ApprovalBinaryFileWriter.java
+  approvaltests/src/main/java/org/approvaltests/writers/ApprovalXmlWriter.java
+  approvaltests/src/main/java/org/approvaltests/writers/ComponentApprovalWriter.java
+  approvaltests/src/main/java/org/approvaltests/writers/DirectoryToDirectoryWriter.java
+  approvaltests/src/main/java/org/approvaltests/writers/ImageApprovalWriter.java
+  approvaltests/src/main/java/org/approvaltests/writers/PaintableApprovalWriter.java
+
+Deleted directories (27):
+  approvaltests-util/src/main/java/com/spun/swing
+  approvaltests-util/src/main/java/com/spun/util/database/automaticsetter
+  approvaltests-util/src/main/java/com/spun/util/date
+  approvaltests-util/src/main/java/com/spun/util/filters
+  approvaltests-util/src/main/java/com/spun/util/images
+  approvaltests-util/src/main/java/com/spun/util/introspection
+  approvaltests-util/src/main/java/com/spun/util/io/filefilters
+  approvaltests-util/src/main/java/com/spun/util/io/xml
+  approvaltests-util/src/main/java/com/spun/util/markdown
+  approvaltests-util/src/main/java/com/spun/util/markdown/table
+  approvaltests-util/src/main/java/com/spun/util/persistence/test
+  approvaltests-util/src/main/java/com/spun/util/quartz
+  approvaltests-util/src/main/java/com/spun/util/servlets
+  approvaltests-util/src/main/java/com/spun/util/sql
+  approvaltests-util/src/main/java/com/spun/util/timers
+  approvaltests-util/src/main/java/com/spun/util/timers/test
+  approvaltests/src/main/java/org/approvaltests/awt
+  approvaltests/src/main/java/org/approvaltests/combinations
+  approvaltests/src/main/java/org/approvaltests/combinations/pairwise
+  approvaltests/src/main/java/org/approvaltests/inline
+  approvaltests/src/main/java/org/approvaltests/legacycode
+  approvaltests/src/main/java/org/approvaltests/strings
+  approvaltests/src/main/java/org/approvaltests/testcommitrevert
+  approvaltests/src/main/java/org/approvaltests/utils
+  approvaltests/src/main/java/org/approvaltests/utils/logger
+  approvaltests/src/main/java/org/approvaltests/utils/parseinput
+  approvaltests/src/main/java/org/approvaltests/velocity

@@ -1,0 +1,15 @@
+Java files: 3
+Version: 31.0.0
+Entry points:
+  org.approvaltests.Approvals
+  org.approvaltests.Approvals.verify(java.lang.String)
+  org.approvaltests.JsonApprovals
+  org.approvaltests.JsonApprovals.verifyAsJson(java.lang.Object)
+  org.approvaltests.core.ApprovalFailureReporter
+  org.approvaltests.core.Options
+  org.approvaltests.reporters.AutoApproveReporter
+  org.approvaltests.reporters.DiffReporter
+  org.approvaltests.reporters.DiffReporter.INSTANCE
+  org.approvaltests.reporters.UseReporter
+Unresolved:
+  
