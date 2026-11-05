@@ -2,6 +2,26 @@
 
 Builds a slimmed-down ApprovalTests jar that contains only the code your project actually uses.
 
+## TL;DR
+
+```mermaid
+flowchart LR
+    code["Your project's<br/>.java files"]
+    json["approvaltests-selection.json<br/>what you use"]
+    jar["approvaltests-31.0.0-custom.jar<br/>252 KB instead of 948 KB<br/>+ report.html"]
+    code -- "CreateSelectionJson.sh" --> json
+    json -- "CreatePartailApprovals.sh" --> jar
+```
+
+From your project's folder:
+
+```bash
+../ApprovalTests.Java.Minimizer/CreateSelectionJson.sh      # 1. find what you use     → approvaltests-selection.json
+../ApprovalTests.Java.Minimizer/CreatePartailApprovals.sh   # 2. build the slim jar   → target/approvaltests-custom/
+```
+
+## Overview
+
 You develop against the full ApprovalTests jar as usual. When you release, this tool builds a custom jar from your usages and removes everything else by **Tree Shaking**. For the [StarterProject](https://github.com/approvals/ApprovalTests.java.StarterProject) on 31.0.0, the jar goes from 948 KB to 252 KB, and Jackson, XStream, Quartz and others drop out. On the latest `master` it's 223 KB, and Velocity is gone too. See the [sample report](https://approvaltests.com/ApprovalTests.Java.Minimizer/sample-report.html).
 
 ## Requirements
