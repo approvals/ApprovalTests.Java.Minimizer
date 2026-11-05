@@ -7,9 +7,9 @@ import java.util.Map;
 
 public class PartialEvaluationCli
 {
-  public static final String USAGE = "usage: approvaltests-partial build [--current] --config <approvaltests-selection.json>\n"
-      + "       approvaltests-partial explain [--current] --config <approvaltests-selection.json> <class or package prefix>\n"
-      + "       approvaltests-partial detect [--config <approvaltests-selection.json>]\n"
+  public static final String USAGE = "usage: approvaltests-minimizer build [--current] --config <approvaltests-selection.json>\n"
+      + "       approvaltests-minimizer explain [--current] --config <approvaltests-selection.json> <class or package prefix>\n"
+      + "       approvaltests-minimizer detect [--config <approvaltests-selection.json>]\n"
       + "  --current  build from the latest master on GitHub instead of the approvaltestsVersion tag\n"
       + "  detect     scans the .java files from the current directory down and writes the selection file";
   public static void main(String[] args)

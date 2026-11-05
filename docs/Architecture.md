@@ -1,8 +1,8 @@
 # Partial Evaluation Architecture
 
-How the `approvaltests-partial` tool is put together. For what it does and why, see [PartialEvaluation.md](PartialEvaluation.md).
+How the ApprovalTests.Java.Minimizer tool is put together. For what it does and why, see [PartialEvaluation.md](PartialEvaluation.md).
 
-All code lives in `approvaltests-partial/src/main/java/org/approvaltests/partial/`.
+All code lives in `src/main/java/org/approvaltests/partial/`.
 
 ## Components
 
@@ -13,7 +13,7 @@ flowchart LR
     script["CreatePartailApprovals.sh<br/>compiles the tool, then runs it"]
     cli["PartialEvaluationCli<br/>build / explain, --current"]
 
-    subgraph tool["approvaltests-partial"]
+    subgraph tool["ApprovalTests.Java.Minimizer"]
         config["SelectionConfig<br/>reads the JSON"]
         checkout["SourceCheckout<br/>clone, or fetch + reset"]
         jars["JarBuilder<br/>mvn package, merge jars,<br/>third-party classpath, stats"]
@@ -157,10 +157,10 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    subgraph repo["ApprovalTests.Java repo"]
-        module["approvaltests-partial/<br/>src, pom.xml,<br/>CreatePartailApprovals.sh, build_and_test.sh"]
-        dotlocal["approvaltests-partial/.local/ (gitignored)<br/>approvaltests-31.0.0/<br/>approvaltests-master/"]
-        spec["internal_documentation/micro_features/<br/>PartialEvalutaion.md"]
+    subgraph repo["ApprovalTests.Java.Minimizer repo"]
+        module["src, pom.xml,<br/>CreateSelectionJson.sh, CreatePartailApprovals.sh,<br/>build_and_test.sh"]
+        dotlocal[".local/ (gitignored)<br/>approvaltests-31.0.0/<br/>approvaltests-master/"]
+        spec["docs/<br/>PartialEvaluation.md, Architecture.md"]
     end
     subgraph project["Your project"]
         selection["approvaltests-selection.json"]
@@ -174,5 +174,5 @@ flowchart LR
     module -. "tests use" .-> tmp
 ```
 
-- **Checkouts:** `.local/` sits inside the repo so you can browse the shaken code. `CheckedExceptionsTest` skips `.local` folders, because it scans the repo for ApprovalTests sources.
-- **Tests:** `TreeShakerTest` clones this repo's own `31.0.0` tag from the local path into the temp directory, so it runs offline.
+- **Checkouts:** `.local/` sits inside this repo so you can browse the shaken code.
+- **Tests:** `TreeShakerTest` clones the `31.0.0` tag into the temp directory, from a sibling `../ApprovalTests.Java` if there is one (offline), and from GitHub otherwise.

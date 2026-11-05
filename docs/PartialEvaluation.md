@@ -145,19 +145,19 @@ The CLI is a **standalone** executable jar. It is not a Maven or Gradle plugin.
 
 ### Source of ApprovalTests Code
 The CLI does not bundle ApprovalTests. For each run it:
-1. Gets a checkout of `https://github.com/approvals/ApprovalTests.Java.git` at `approvaltests-partial/.local/approvaltests-<version>/`:
+1. Gets a checkout of `https://github.com/approvals/ApprovalTests.Java.git` at `.local/approvaltests-<version>/`:
    - If that folder doesn't exist yet, it shallow-clones the tag that matches `approvaltestsVersion` (tags are plain version numbers, e.g. `31.0.0`).
    - If it already exists, it fetches the tag, then force-checks it out, `git reset --hard` and `git clean`. It does not clone again.
-   - With `--current`, it uses the latest `master` instead of the tag, at `approvaltests-partial/.local/approvaltests-master/`. The report shows the commit, e.g. `master@63044b7`, and the jar is named `approvaltests-master-custom.jar`.
-2. Applies Tree Shaking to that checkout. The checkout is kept, so `git -C approvaltests-partial/.local/approvaltests-<version> diff` shows exactly what changed.
+   - With `--current`, it uses the latest `master` instead of the tag, at `.local/approvaltests-master/`. The report shows the commit, e.g. `master@63044b7`, and the jar is named `approvaltests-master-custom.jar`.
+2. Applies Tree Shaking to that checkout. The checkout is kept, so `git -C .local/approvaltests-<version> diff` shows exactly what changed.
 3. Builds the custom jar from that checkout.
 
 Because of this, one CLI can build any ApprovalTests version, and the config version never has to match the CLI's version.
 
 ```
-approvaltests-partial build   --config approvaltests-selection.json [output flags]
-approvaltests-partial list    [--version 31.0.0] [--format text|json]
-approvaltests-partial explain --config approvaltests-selection.json [--entry-point <signature>]
+approvaltests-minimizer build --config approvaltests-selection.json [output flags]
+approvaltests-minimizer list  [--version 31.0.0] [--format text|json]
+approvaltests-minimizer explain --config approvaltests-selection.json [--entry-point <signature>]
 ```
 
 ### Commands
@@ -193,12 +193,12 @@ The HTML report contains:
 - **Deleted files**: grouped by package.
 
 ## Current Implementation (first pass)
-Lives in `approvaltests-partial/`, a standalone Maven module (Java 17). It is not part of the main reactor build.
+Lives in the [ApprovalTests.Java.Minimizer](https://github.com/approvals/ApprovalTests.Java.Minimizer) repo, a standalone Maven project (Java 17, artifact `com.approvaltests:approvaltests-minimizer`). It started as the `approvaltests-partial` module in ApprovalTests.Java.
 
 ### Creating the Selection File
 From your project folder:
 ```bash
-path/to/ApprovalTests.Java/approvaltests-partial/CreateSelectionJson.sh [approvaltests-selection.json]
+path/to/ApprovalTests.Java.Minimizer/CreateSelectionJson.sh [approvaltests-selection.json]
 ```
 It scans every `.java` file from the current folder down and writes the selection file.
 - **Skipped folders:** `target`, `build`, `out`, `.git`, `.local`, `.idea`, `.gradle` and `node_modules`.
@@ -215,17 +215,17 @@ For the StarterProject it finds 9 entry points in about 3 seconds, and the jar b
 ### Running It
 From your project folder (the one with `approvaltests-selection.json`):
 ```bash
-path/to/ApprovalTests.Java/approvaltests-partial/CreatePartailApprovals.sh [--current] [approvaltests-selection.json]
-path/to/ApprovalTests.Java/approvaltests-partial/CreatePartailApprovals.sh explain [--current] <class or package prefix> [approvaltests-selection.json]
+path/to/ApprovalTests.Java.Minimizer/CreatePartailApprovals.sh [--current] [approvaltests-selection.json]
+path/to/ApprovalTests.Java.Minimizer/CreatePartailApprovals.sh explain [--current] <class or package prefix> [approvaltests-selection.json]
 ```
 - The config file defaults to `approvaltests-selection.json` in the current folder.
 - The script compiles the CLI on every run (about 3 seconds), so it never runs a stale build.
 - `--current` builds from the latest `master` on GitHub instead of the `approvaltestsVersion` tag. Use it to try changes to ApprovalTests before they are released.
 - `explain` prints, for every kept class matching the prefix, the chain of reasons back to an entry point.
-- All projects share checkouts in `approvaltests-partial/.local/` (set with `-Dapprovaltests.partial.local=<dir>`), so no `.local/` folder appears in your project. `CheckedExceptionsTest` scans the repo for ApprovalTests sources, so it skips `.local` folders to avoid picking up the shaken copies.
+- All projects share checkouts in this repo's `.local/` folder (set with `-Dapprovaltests.partial.local=<dir>`), so no `.local/` folder appears in your project.
 - `list`, the output flags, and the `pom` / `sources` / `install` settings are not implemented yet.
 
-Build and test the tool itself with `approvaltests-partial/build_and_test.sh`.
+Build and test the tool itself with `./build_and_test.sh`.
 
 ### Build Pipeline
 1. Check out the tag (clone, or fetch and reset).

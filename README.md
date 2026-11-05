@@ -1,4 +1,4 @@
-# approvaltests-partial
+# ApprovalTests.Java.Minimizer
 
 Builds a slimmed-down ApprovalTests jar that contains only the code your project actually uses.
 
@@ -12,12 +12,12 @@ You develop against the full ApprovalTests jar as usual. When you release, this 
 
 ## How To Use It
 
-Run these from **your project's folder**. The paths below assume ApprovalTests.Java is cloned next to your project.
+Run these from **your project's folder**. The paths below assume this repo is cloned next to your project.
 
 ### 1. Create the selection file
 
 ```bash
-../ApprovalTests.Java/approvaltests-partial/CreateSelectionJson.sh
+../ApprovalTests.Java.Minimizer/CreateSelectionJson.sh
 ```
 
 This scans every `.java` file from the current folder down and writes `approvaltests-selection.json`. That file lists the ApprovalTests version and every method, constructor, field and class you use. Commit it with your project.
@@ -41,7 +41,7 @@ Check anything listed under "Could not resolve" by hand. Rerunning it later upda
 ### 2. Build the partial jar
 
 ```bash
-../ApprovalTests.Java/approvaltests-partial/CreatePartailApprovals.sh
+../ApprovalTests.Java.Minimizer/CreatePartailApprovals.sh
 ```
 
 This clones ApprovalTests at your version's tag, removes everything your selection doesn't reach, and builds. It writes these to `target/approvaltests-custom/`:
@@ -83,11 +83,12 @@ com.spun.util.database.ResultSetWriter is kept because:
 - **Unused code is deleted, not stubbed.** The partial jar is a drop-in replacement only for what you selected. Develop against the full jar, and release with the partial one.
 - **Imports count as usage.** Java needs every imported class to exist, so the detector includes unused imports. Remove them if you don't want those classes.
 - **Runtime discoveries are all kept for now** (`"*": "keep"`), e.g. reporter auto-detection and test-framework detection.
-- **Where the code is:** the ApprovalTests checkout lives in `approvaltests-partial/.local/` (gitignored). Run `git -C .local/approvaltests-<version> diff` to see exactly what was removed.
+- **Where the code is:** the ApprovalTests checkout lives in this repo's `.local/` folder (gitignored). Run `git -C .local/approvaltests-<version> diff` to see exactly what was removed.
 - **Gradle** projects aren't supported by `CreateSelectionJson.sh` yet.
 
 ## Working On The Tool
 
-- `./build_and_test.sh` builds and tests this module. It's a standalone Maven module, not part of the main ApprovalTests build.
-- [PartialEvalutaion.md](../internal_documentation/micro_features/PartialEvalutaion.md) is the spec and the current implementation notes.
-- [PartialEvalutaionArchitecture.md](../internal_documentation/micro_features/PartialEvalutaionArchitecture.md) has the architecture diagrams.
+- `./build_and_test.sh` builds and tests the tool. `TreeShakerTest` uses a sibling `../ApprovalTests.Java` clone if there is one, and clones from GitHub otherwise.
+- [docs/PartialEvaluation.md](docs/PartialEvaluation.md) is the spec and the current implementation notes.
+- [docs/Architecture.md](docs/Architecture.md) has the architecture diagrams.
+- [AGENTS.md](AGENTS.md) has the conventions for working in this repo.
