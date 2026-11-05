@@ -1,0 +1,9 @@
+[tools]
+maven = "latest"
+
+[tasks]
+build_and_test = "mvn --quiet -B verify --file pom.xml"
+
+[settings]
+# the java version is in the .java-version file so the CI matrix can override it
+idiomatic_version_file_enable_tools = ["java"]
