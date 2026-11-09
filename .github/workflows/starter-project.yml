@@ -31,7 +31,7 @@ jobs:
         with:
           repository: approvals/ApprovalTests.java.StarterProject
           path: ApprovalTests.java.StarterProject
-      - uses: jdx/mise-action@v5.2.6
+      - uses: jdx/mise-action@v5.2.7
         with:
           working_directory: ApprovalTests.Java.Minimizer
       - name: Create the selection file
