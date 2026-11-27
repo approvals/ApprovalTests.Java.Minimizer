@@ -18,7 +18,7 @@
         <dependency>
             <groupId>com.approvaltests</groupId>
             <artifactId>approvaltests-util</artifactId>
-            <version>31.0.0</version>
+            <version>32.2.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
